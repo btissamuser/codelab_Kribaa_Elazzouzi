@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CodeLab : apprends HTML, CSS et JavaScript gratuitement avec des cours interactifs, des exercices et un quiz.">
+  <title>Accueil | CodeLab</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <img src="img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="pages/html.html">HTML</a></li>
+          <li><a href="pages/css.html">CSS</a></li>
+          <li><a href="pages/javascript.html">JavaScript</a></li>
+          <li><a href="pages/quiz.html">Quiz</a></li>
+          <li><a href="pages/apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" aria-labelledby="titre-accueil">
+      <div>
+        <h1 id="titre-accueil">Apprends <span class="typed">HTML</span><br>en t'amusant.</h1>
+        <p>Des cours courts, des exemples à copier, des zones pour tester ton code en direct et un quiz pour vérifier ce que tu as retenu. Aucun prérequis : juste un navigateur et un peu de curiosité.</p>
+        <div class="hero-actions">
+          <a class="btn" href="pages/html.html">Commencer par HTML</a>
+          <a class="btn secondary" href="pages/quiz.html">Tester mes connaissances</a>
+        </div>
+      </div>
+      <img class="hero-visual" src="img/hero.svg" alt="Illustration d'un éditeur de code avec des lignes colorées" width="400" height="320">
+    </section>
+
+    <section class="carousel" aria-roledescription="carrousel" aria-label="Les trois langages du Web" tabindex="0">
+      <div class="slides">
+        <article class="slide html">
+          <h2>1. HTML, le squelette</h2>
+          <p>HTML décrit le contenu d'une page : titres, paragraphes, images, liens, tableaux, formulaires… C'est la base de tout site Web.</p>
+          <a class="btn" href="pages/html.html">Voir le cours HTML</a>
+        </article>
+        <article class="slide css">
+          <h2>2. CSS, l'apparence</h2>
+          <p>CSS met en forme le HTML : couleurs, polices, marges, mise en page avec Flexbox et adaptation à tous les écrans.</p>
+          <a class="btn" href="pages/css.html">Voir le cours CSS</a>
+        </article>
+        <article class="slide js">
+          <h2>3. JavaScript, le cerveau</h2>
+          <p>JavaScript rend la page vivante : réagir aux clics, valider un formulaire, charger des données, créer des animations.</p>
+          <a class="btn" href="pages/javascript.html">Voir le cours JavaScript</a>
+        </article>
+      </div>
+      <button class="carousel-btn prev" type="button" aria-label="Diapositive précédente">‹</button>
+      <button class="carousel-btn next" type="button" aria-label="Diapositive suivante">›</button>
+      <div class="dots"></div>
+    </section>
+
+    <h2 class="section-title">Ton parcours</h2>
+    <div class="grid-3">
+      <article class="card course-card html reveal" data-progress="html">
+        <span class="icon" aria-hidden="true">🧱</span>
+        <h3>HTML</h3>
+        <p>Structure d'une page, balises sémantiques, liens, images, listes, tableaux et formulaires.</p>
+        <div class="progress-bar"><span></span></div>
+        <small class="progress-label">0 % terminé</small>
+        <a class="btn" href="pages/html.html">Aller au cours</a>
+      </article>
+      <article class="card course-card css reveal" data-progress="css">
+        <span class="icon" aria-hidden="true">🎨</span>
+        <h3>CSS</h3>
+        <p>Sélecteurs, couleurs, modèle de boîte, Flexbox et responsive design avec les media queries.</p>
+        <div class="progress-bar"><span></span></div>
+        <small class="progress-label">0 % terminé</small>
+        <a class="btn" href="pages/css.html">Aller au cours</a>
+      </article>
+      <article class="card course-card js reveal" data-progress="js">
+        <span class="icon" aria-hidden="true">⚡</span>
+        <h3>JavaScript</h3>
+        <p>Variables, conditions, fonctions, manipulation du DOM, événements et code asynchrone.</p>
+        <div class="progress-bar"><span></span></div>
+        <small class="progress-label">0 % terminé</small>
+        <a class="btn" href="pages/javascript.html">Aller au cours</a>
+      </article>
+    </div>
+
+    <section class="stats" aria-label="CodeLab en chiffres">
+      <div class="card stat reveal"><strong data-count="3">0</strong>langages</div>
+      <div class="card stat reveal"><strong data-count="17">0</strong>leçons</div>
+      <div class="card stat reveal"><strong data-count="15">0</strong>questions de quiz</div>
+      <div class="card stat reveal"><strong data-count="100" data-suffix=" %">0</strong>gratuit</div>
+    </section>
+
+    <h2 class="section-title">Comment ça marche ?</h2>
+    <div class="grid-3">
+      <div class="card reveal">
+        <h3>📖 1. Lis</h3>
+        <p>Chaque leçon explique une notion en quelques lignes avec un exemple de code que tu peux copier en un clic.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🧪 2. Teste</h3>
+        <p>Modifie le code dans les éditeurs en direct, joue avec les curseurs CSS et lance tes scripts dans la console.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🏆 3. Valide</h3>
+        <p>Marque les leçons comme terminées pour suivre ta progression ici, puis passe le quiz pour vérifier tes acquis.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="pages/html.html">Cours HTML</a></li>
+          <li><a href="pages/css.html">Cours CSS</a></li>
+          <li><a href="pages/javascript.html">Cours JavaScript</a></li>
+          <li><a href="pages/quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="pages/apropos.html">À propos</a></li>
+          <li><a href="pages/apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>

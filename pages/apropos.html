@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="L'équipe CodeLab, la répartition du travail et le formulaire de contact.">
+  <title>À propos & contact | CodeLab</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/contact.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="html.html">HTML</a></li>
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="javascript.html">JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero about">
+      <h1>À propos de CodeLab</h1>
+      <p>CodeLab est un projet réalisé dans le cadre du module Programmation Web 1 (TI504N) à l'EFREI Paris, en HTML5, CSS3 et JavaScript, sans aucun framework ni bibliothèque.</p>
+    </section>
+
+    <h2 class="section-title">L'équipe</h2>
+    <div class="team">
+      <article class="card member reveal">
+        <div class="avatar" aria-hidden="true">BK</div>
+        <h3>Btissam KRIBAA</h3>
+        <p><span class="badge html">HTML</span> <span class="badge css">CSS</span> <span class="badge js">JS</span></p>
+        <p>Maquette du site, page d'accueil (carrousel, compteurs animés), cours HTML et CSS, simulateurs du modèle de boîte et de Flexbox, design responsive.</p>
+      </article>
+      <article class="card member reveal">
+        <div class="avatar" aria-hidden="true">M2</div>
+        <h3>Prénom NOM (membre 2)</h3>
+        <p><span class="badge js">JS</span> <span class="badge css">CSS</span></p>
+        <p>Cours JavaScript, console et éditeur en direct, quiz chargé en JSON avec fetch, tableau des scores, formulaire de contact et validation.</p>
+      </article>
+    </div>
+
+    <h2 class="section-title">Le projet en bref</h2>
+    <div class="grid-3">
+      <div class="card reveal">
+        <h3>🎯 Objectif</h3>
+        <p>Proposer un site simple et interactif pour apprendre les trois langages du Web, pensé pour les grands débutants.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🛠️ Technologies</h3>
+        <p>HTML5 sémantique, CSS3 (variables, Grid, Flexbox, media queries, animations) et JavaScript natif (DOM, événements, fetch, localStorage).</p>
+      </div>
+      <div class="card reveal">
+        <h3>✅ Qualité</h3>
+        <p>Pages validées avec le validateur W3C, site responsive (mobile, tablette, ordinateur) et versionné avec Git.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Répartition du travail</h2>
+    <div class="table-wrap reveal">
+      <table>
+        <caption>Qui a fait quoi</caption>
+        <thead>
+          <tr>
+            <th scope="col">Partie</th>
+            <th scope="col">Fichiers</th>
+            <th scope="col">Responsable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Maquette (wireframe)</td><td><code>maquette/</code></td><td>Btissam</td></tr>
+          <tr><td>Structure commune (en-tête, pied de page, navigation)</td><td>toutes les pages, <code>css/style.css</code></td><td>Btissam</td></tr>
+          <tr><td>Accueil : carrousel, compteurs, progression</td><td><code>index.html</code>, <code>js/home.js</code></td><td>Btissam</td></tr>
+          <tr><td>Cours HTML et CSS + simulateurs</td><td><code>pages/html.html</code>, <code>pages/css.html</code>, <code>js/playground.js</code></td><td>Btissam</td></tr>
+          <tr><td>Cours JavaScript + console</td><td><code>pages/javascript.html</code></td><td>Membre 2</td></tr>
+          <tr><td>Quiz (JSON + fetch + scores)</td><td><code>pages/quiz.html</code>, <code>js/quiz.js</code>, <code>data/quiz.json</code></td><td>Membre 2</td></tr>
+          <tr><td>Formulaire de contact + validation</td><td><code>pages/apropos.html</code>, <code>js/contact.js</code></td><td>Membre 2</td></tr>
+          <tr><td>Thème sombre, menu mobile, animations</td><td><code>js/main.js</code></td><td>Les deux</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="section-title" id="contact">Nous contacter</h2>
+    <div class="two-cols">
+      <form class="card form" id="contact-form" action="#" method="post" novalidate>
+        <div class="form-row">
+          <label for="nom">Nom et prénom *</label>
+          <input type="text" id="nom" name="nom" autocomplete="name" required aria-describedby="error-nom">
+          <p class="error-msg" id="error-nom"></p>
+        </div>
+        <div class="form-row">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="error-email">
+          <p class="error-msg" id="error-email"></p>
+        </div>
+        <div class="form-row">
+          <label for="sujet">Sujet *</label>
+          <select id="sujet" name="sujet" required aria-describedby="error-sujet">
+            <option value="">-- Choisir --</option>
+            <option value="question">Question sur un cours</option>
+            <option value="bug">Signaler une erreur</option>
+            <option value="idee">Proposer une idée</option>
+            <option value="autre">Autre</option>
+          </select>
+          <p class="error-msg" id="error-sujet"></p>
+        </div>
+        <fieldset class="form-row">
+          <legend>Ton niveau *</legend>
+          <label><input type="radio" name="niveau" value="debutant"> Débutant</label>
+          <label><input type="radio" name="niveau" value="intermediaire"> Intermédiaire</label>
+          <label><input type="radio" name="niveau" value="avance"> Avancé</label>
+          <p class="error-msg" id="error-niveau"></p>
+        </fieldset>
+        <div class="form-row">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" maxlength="500" required aria-describedby="error-message"></textarea>
+          <small id="message-count">0 / 500</small>
+          <p class="error-msg" id="error-message"></p>
+        </div>
+        <div class="form-row">
+          <label><input type="checkbox" id="rgpd" name="rgpd"> J'accepte que mes données soient utilisées pour me répondre. *</label>
+          <p class="error-msg" id="error-rgpd"></p>
+        </div>
+        <button class="btn" type="submit">Envoyer</button>
+        <p class="form-success" id="form-success" role="status"></p>
+      </form>
+
+      <div class="card reveal">
+        <h3>📍 Où nous trouver</h3>
+        <p>EFREI Paris<br>30-32 avenue de la République<br>94800 Villejuif</p>
+        <h3>⏱️ Délai de réponse</h3>
+        <p>Nous répondons généralement sous 48 heures.</p>
+        <h3>🔗 Ressources utiles</h3>
+        <ul>
+          <li><a href="https://developer.mozilla.org/fr/">MDN Web Docs</a></li>
+          <li><a href="https://validator.w3.org/">Validateur HTML W3C</a></li>
+          <li><a href="https://jigsaw.w3.org/css-validator/">Validateur CSS W3C</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="html.html">Cours HTML</a></li>
+          <li><a href="css.html">Cours CSS</a></li>
+          <li><a href="javascript.html">Cours JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>
