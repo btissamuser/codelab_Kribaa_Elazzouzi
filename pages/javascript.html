@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cours JavaScript : variables, conditions, fonctions, DOM, événements et asynchrone, avec une console intégrée.">
+  <title>Cours JavaScript | CodeLab</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/playground.js" defer></script>
+</head>
+<body data-course="js">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="html.html">HTML</a></li>
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="javascript.html">JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero js">
+      <span class="badge html">Niveau débutant</span>
+      <h1>Cours JavaScript</h1>
+      <p>JavaScript est le langage de programmation du navigateur : il rend tes pages interactives.</p>
+    </section>
+
+    <div class="course-layout">
+      <aside class="toc card" aria-label="Sommaire du cours JavaScript">
+        <strong>Sommaire</strong>
+        <ol>
+          <li><a href="#variables">Variables et types</a></li>
+          <li><a href="#conditions">Conditions et boucles</a></li>
+          <li><a href="#fonctions">Fonctions</a></li>
+          <li><a href="#dom">DOM et événements</a></li>
+          <li><a href="#async">Asynchrone et erreurs</a></li>
+          <li><a href="#console">Console en direct</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <section class="lesson card reveal" id="variables">
+          <h2>1. Variables et types</h2>
+          <p>On déclare une variable avec <code>let</code> (modifiable) ou <code>const</code> (non réaffectable). On évite l'ancien <code>var</code>.</p>
+          <div class="code-block">
+            <pre><code>const prenom = "Btissam";   // chaîne de caractères (string)
+let age = 20;               // nombre (number)
+let estEtudiant = true;     // booléen (boolean)
+const langages = ["HTML", "CSS", "JS"];        // tableau
+const cours = { nom: "Web", heures: 30 };      // objet
+
+age = age + 1;
+console.log(`${prenom} a ${age} ans`);         // template string</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="conditions">
+          <h2>2. Conditions et boucles</h2>
+          <div class="code-block">
+            <pre><code>const note = 14;
+if (note &gt;= 16) {
+  console.log("Très bien");
+} else if (note &gt;= 10) {
+  console.log("Validé");
+} else {
+  console.log("Rattrapage");
+}
+
+for (let i = 1; i &lt;= 3; i++) {
+  console.log("Tour n°" + i);
+}
+
+["HTML", "CSS", "JS"].forEach((langage) =&gt; console.log(langage));</code></pre>
+          </div>
+          <p class="tip">💡 Utilise toujours <code>===</code> (égalité stricte) plutôt que <code>==</code> : <code>"5" == 5</code> vaut <code>true</code> mais <code>"5" === 5</code> vaut <code>false</code>.</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="fonctions">
+          <h2>3. Fonctions</h2>
+          <p>Une fonction regroupe des instructions réutilisables. Elle peut recevoir des <strong>paramètres</strong> et <strong>renvoyer</strong> une valeur avec <code>return</code>.</p>
+          <div class="code-block">
+            <pre><code>function moyenne(a, b) {
+  return (a + b) / 2;
+}
+
+// la même chose en fonction fléchée
+const carre = (x) =&gt; x * x;
+
+console.log(moyenne(12, 16)); // 14
+console.log(carre(5));        // 25</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="dom">
+          <h2>4. DOM et événements</h2>
+          <p>Le <strong>DOM</strong> est la représentation de la page que JavaScript peut lire et modifier. On sélectionne un élément puis on écoute un événement (clic, saisie, envoi…).</p>
+          <div class="code-block">
+            <pre><code>const bouton = document.querySelector("#demo-click");
+const compteur = document.querySelector("#demo-count");
+let clics = 0;
+
+bouton.addEventListener("click", () =&gt; {
+  clics++;
+  compteur.textContent = clics;
+});</code></pre>
+          </div>
+          <p>Essaie : <button class="btn" id="demo-click" type="button">Clique-moi</button> — nombre de clics : <strong id="demo-count">0</strong></p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="async">
+          <h2>5. Asynchrone et gestion des erreurs</h2>
+          <p>Certaines actions prennent du temps (charger un fichier, appeler une API). Avec <code>async</code> / <code>await</code>, on attend le résultat sans bloquer la page, et <code>try</code> / <code>catch</code> attrape les erreurs pour que le site continue de fonctionner.</p>
+          <div class="code-block">
+            <pre><code>async function chargerQuestions() {
+  try {
+    const reponse = await fetch("../data/quiz.json");
+    if (!reponse.ok) throw new Error("Erreur " + reponse.status);
+    const questions = await reponse.json();
+    console.log(questions.length + " questions chargées");
+  } catch (erreur) {
+    console.error("Chargement impossible :", erreur.message);
+  }
+}
+chargerQuestions();</code></pre>
+          </div>
+          <p class="tip">💡 C'est exactement ce que fait la page <a href="quiz.html">Quiz</a> ! Et l'attribut <code>defer</code> sur <code>&lt;script&gt;</code> permet au navigateur d'afficher le HTML avant d'exécuter le script.</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="console">
+          <h2>Console en direct</h2>
+          <p>Écris du JavaScript et clique sur « Exécuter ». Utilise <code>console.log()</code> pour afficher un résultat.</p>
+          <label class="sr-only" for="js-input">Code JavaScript à exécuter</label>
+          <textarea id="js-input" rows="8" spellcheck="false">const langages = ["HTML", "CSS", "JavaScript"];
+langages.forEach((l, i) =&gt; console.log(i + 1, l));
+
+const total = langages.length * 10;
+console.log("Total :", total);</textarea>
+          <p><button class="btn" id="run-js" type="button">▶ Exécuter</button></p>
+          <div class="console-out" id="js-output" aria-live="polite">// Le résultat s'affichera ici</div>
+
+          <h3>Éditeur HTML + CSS + JS</h3>
+          <div class="live-editor">
+            <label class="sr-only" for="editor-js">Code de la page de test</label>
+            <textarea id="editor-js" spellcheck="false">&lt;style&gt;
+  button { padding: 10px 20px; font-size: 18px; }
+  .rouge { background: tomato; color: white; }
+&lt;/style&gt;
+&lt;button id="b"&gt;Change ma couleur&lt;/button&gt;
+&lt;script&gt;
+  const b = document.getElementById("b");
+  b.addEventListener("click", () =&gt; b.classList.toggle("rouge"));
+&lt;/script&gt;</textarea>
+            <iframe title="Aperçu du code" sandbox="allow-scripts"></iframe>
+          </div>
+          <p><button class="btn secondary reset-editor" type="button">Réinitialiser</button></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="html.html">Cours HTML</a></li>
+          <li><a href="css.html">Cours CSS</a></li>
+          <li><a href="javascript.html">Cours JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>
