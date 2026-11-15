@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Teste tes connaissances en HTML, CSS et JavaScript avec le quiz CodeLab.">
+  <title>Quiz | CodeLab</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/quiz.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="html.html">HTML</a></li>
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="javascript.html">JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero quiz">
+      <h1>Quiz</h1>
+      <p>Vérifie ce que tu as retenu. Choisis un thème, réponds aux questions et enregistre ton score.</p>
+    </section>
+
+    <p id="quiz-status" aria-live="polite">Chargement…</p>
+
+    <div class="quiz-filters" role="group" aria-label="Choisir le thème du quiz">
+      <button class="filter-btn active" type="button" data-theme="all" aria-pressed="true">Tout</button>
+      <button class="filter-btn" type="button" data-theme="html" aria-pressed="false">HTML</button>
+      <button class="filter-btn" type="button" data-theme="css" aria-pressed="false">CSS</button>
+      <button class="filter-btn" type="button" data-theme="js" aria-pressed="false">JavaScript</button>
+    </div>
+
+    <div class="two-cols">
+      <section class="card quiz-box" aria-label="Question en cours">
+        <div id="quiz-box">
+          <div class="quiz-top">
+            <span id="quiz-progress">Question 1</span>
+            <span id="quiz-score">Score : 0</span>
+          </div>
+          <h2 id="quiz-question">…</h2>
+          <div class="answers" id="quiz-answers"></div>
+          <p class="explanation" id="quiz-explanation" aria-live="polite"></p>
+          <button class="btn hidden" id="quiz-next" type="button">Question suivante →</button>
+        </div>
+
+        <div class="hidden" id="quiz-result">
+          <h2>Résultat 🎯</h2>
+          <p id="quiz-result-text"></p>
+          <form class="form" id="score-form" novalidate>
+            <div class="form-row">
+              <label for="pseudo">Ton pseudo pour le tableau des scores</label>
+              <input type="text" id="pseudo" name="pseudo" maxlength="20" placeholder="ex : codeuse94" required>
+            </div>
+            <button class="btn" type="submit">Enregistrer mon score</button>
+          </form>
+          <p><button class="btn secondary" id="quiz-restart" type="button">Rejouer</button></p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="titre-scores">
+        <h2 id="titre-scores">🏆 Meilleurs scores</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Les 10 meilleurs scores enregistrés sur cet appareil</caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Thème</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody id="scores-body"></tbody>
+          </table>
+        </div>
+        <p><button class="btn secondary" id="clear-scores" type="button">Effacer les scores</button></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="html.html">Cours HTML</a></li>
+          <li><a href="css.html">Cours CSS</a></li>
+          <li><a href="javascript.html">Cours JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>
