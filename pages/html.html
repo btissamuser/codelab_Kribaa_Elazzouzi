@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cours HTML pour débutants : structure d'une page, textes, liens, images, listes, tableaux et formulaires.">
+  <title>Cours HTML | CodeLab</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/playground.js" defer></script>
+</head>
+<body data-course="html">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="html.html">HTML</a></li>
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="javascript.html">JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero html">
+      <span class="badge js">Niveau débutant</span>
+      <h1>Cours HTML</h1>
+      <p>HTML (HyperText Markup Language) sert à décrire le contenu d'une page Web à l'aide de balises.</p>
+    </section>
+
+    <div class="course-layout">
+      <aside class="toc card" aria-label="Sommaire du cours HTML">
+        <strong>Sommaire</strong>
+        <ol>
+          <li><a href="#structure">Structure d'une page</a></li>
+          <li><a href="#textes">Titres et textes</a></li>
+          <li><a href="#liens">Liens et images</a></li>
+          <li><a href="#listes">Listes</a></li>
+          <li><a href="#tableaux">Tableaux</a></li>
+          <li><a href="#formulaires">Formulaires</a></li>
+          <li><a href="#editeur">À toi de jouer</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <section class="lesson card reveal" id="structure">
+          <h2>1. Structure d'une page</h2>
+          <p>Toute page HTML5 commence par le <code>&lt;!DOCTYPE html&gt;</code>, puis la balise <code>&lt;html&gt;</code> qui contient deux parties : le <code>&lt;head&gt;</code> (informations pour le navigateur) et le <code>&lt;body&gt;</code> (ce qui s'affiche).</p>
+          <div class="code-block">
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Ma première page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;...&lt;/header&gt;
+  &lt;main&gt;...&lt;/main&gt;
+  &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+          <p class="tip">💡 Les balises <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> et <code>&lt;footer&gt;</code> sont dites <strong>sémantiques</strong> : elles donnent du sens au contenu (utile pour le référencement et l'accessibilité).</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="textes">
+          <h2>2. Titres et textes</h2>
+          <p>Il existe six niveaux de titres, de <code>&lt;h1&gt;</code> (le plus important, un seul par page) à <code>&lt;h6&gt;</code>. Les paragraphes s'écrivent avec <code>&lt;p&gt;</code>.</p>
+          <div class="code-block">
+            <pre><code>&lt;h1&gt;Titre principal&lt;/h1&gt;
+&lt;h2&gt;Sous-titre&lt;/h2&gt;
+&lt;p&gt;Un paragraphe avec un mot &lt;strong&gt;important&lt;/strong&gt;
+et un mot &lt;em&gt;mis en valeur&lt;/em&gt;.&lt;/p&gt;
+&lt;br&gt; &lt;!-- retour à la ligne --&gt;</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="liens">
+          <h2>3. Liens et images</h2>
+          <p>Un lien utilise la balise <code>&lt;a&gt;</code> et l'attribut <code>href</code>. Une image utilise <code>&lt;img&gt;</code> avec <code>src</code> (le chemin) et <code>alt</code> (le texte alternatif, obligatoire).</p>
+          <div class="code-block">
+            <pre><code>&lt;a href="pages/css.html"&gt;Lien vers une autre page&lt;/a&gt;
+&lt;a href="https://developer.mozilla.org" target="_blank"&gt;Site externe&lt;/a&gt;
+&lt;a href="#tableaux"&gt;Aller à une section de la page&lt;/a&gt;
+
+&lt;img src="img/logo.svg" alt="Logo de CodeLab" width="64" height="64"&gt;</code></pre>
+          </div>
+          <p class="tip">💡 Chemin <strong>relatif</strong> (<code>../img/logo.svg</code>) = à partir du fichier actuel. Chemin <strong>absolu</strong> = adresse complète commençant par <code>https://</code>.</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="listes">
+          <h2>4. Listes</h2>
+          <p><code>&lt;ul&gt;</code> crée une liste à puces, <code>&lt;ol&gt;</code> une liste numérotée. Chaque élément est un <code>&lt;li&gt;</code>.</p>
+          <div class="code-block">
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Écrire le HTML&lt;/li&gt;
+  &lt;li&gt;Ajouter le CSS&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="tableaux">
+          <h2>5. Tableaux</h2>
+          <p>Un tableau se construit ligne par ligne avec <code>&lt;tr&gt;</code>. Les cellules d'en-tête sont des <code>&lt;th&gt;</code> et les cellules normales des <code>&lt;td&gt;</code>. Voici un tableau récapitulatif des balises vues :</p>
+          <div class="table-wrap">
+            <table>
+              <caption>Balises HTML essentielles</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Balise</th>
+                  <th scope="col">Rôle</th>
+                  <th scope="col">Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code></td><td>Titres</td><td>Bloc</td></tr>
+                <tr><td><code>&lt;p&gt;</code></td><td>Paragraphe</td><td>Bloc</td></tr>
+                <tr><td><code>&lt;a&gt;</code></td><td>Lien hypertexte</td><td>En ligne</td></tr>
+                <tr><td><code>&lt;img&gt;</code></td><td>Image</td><td>En ligne (orpheline)</td></tr>
+                <tr><td><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code></td><td>Listes</td><td>Bloc</td></tr>
+                <tr><td><code>&lt;table&gt;</code></td><td>Tableau</td><td>Bloc</td></tr>
+                <tr><td><code>&lt;form&gt;</code></td><td>Formulaire</td><td>Bloc</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Balise&lt;/th&gt;&lt;th&gt;Rôle&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;&amp;lt;p&amp;gt;&lt;/td&gt;&lt;td&gt;Paragraphe&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="formulaires">
+          <h2>6. Formulaires</h2>
+          <p>Un formulaire regroupe des champs dans <code>&lt;form&gt;</code>. Chaque champ <code>&lt;input&gt;</code> doit être relié à un <code>&lt;label&gt;</code> grâce aux attributs <code>for</code> et <code>id</code>.</p>
+          <div class="code-block">
+            <pre><code>&lt;form action="#" method="post"&gt;
+  &lt;label for="prenom"&gt;Prénom&lt;/label&gt;
+  &lt;input type="text" id="prenom" name="prenom" required&gt;
+
+  &lt;label for="mail"&gt;E-mail&lt;/label&gt;
+  &lt;input type="email" id="mail" name="mail"&gt;
+
+  &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+          <p>Types d'<code>&lt;input&gt;</code> utiles : <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>date</code>, <code>checkbox</code>, <code>radio</code>, <code>range</code>. Un vrai formulaire validé en JavaScript t'attend sur la page <a href="apropos.html#contact">Contact</a>.</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="editeur">
+          <h2>À toi de jouer !</h2>
+          <p>Modifie le code à gauche : le résultat s'affiche à droite en temps réel.</p>
+          <div class="live-editor">
+            <label class="sr-only" for="editor-html">Code HTML à modifier</label>
+            <textarea id="editor-html" spellcheck="false">&lt;h1&gt;Bonjour le Web !&lt;/h1&gt;
+&lt;p&gt;Je m'appelle &lt;strong&gt;...&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;J'apprends HTML&lt;/li&gt;
+  &lt;li&gt;Puis CSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href="https://developer.mozilla.org/fr/"&gt;MDN&lt;/a&gt;</textarea>
+            <iframe title="Aperçu du code HTML" sandbox="allow-scripts"></iframe>
+          </div>
+          <p><button class="btn secondary reset-editor" type="button">Réinitialiser</button></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="html.html">Cours HTML</a></li>
+          <li><a href="css.html">Cours CSS</a></li>
+          <li><a href="javascript.html">Cours JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>

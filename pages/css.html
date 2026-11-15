@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cours CSS : sélecteurs, couleurs, modèle de boîte interactif, Flexbox et responsive design.">
+  <title>Cours CSS | CodeLab</title>
+  <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/playground.js" defer></script>
+</head>
+<body data-course="css">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html">
+        <img src="../img/logo.svg" alt="" width="36" height="36">Code<span>Lab</span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="html.html">HTML</a></li>
+          <li><a href="css.html">CSS</a></li>
+          <li><a href="javascript.html">JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">🌙</button>
+        <button class="icon-btn burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+      </div>
+    </div>
+    <div class="read-progress"></div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero css">
+      <span class="badge js">Niveau débutant</span>
+      <h1>Cours CSS</h1>
+      <p>CSS (Cascading Style Sheets) décide de l'apparence de ta page : couleurs, tailles, espacements et mise en page.</p>
+    </section>
+
+    <div class="course-layout">
+      <aside class="toc card" aria-label="Sommaire du cours CSS">
+        <strong>Sommaire</strong>
+        <ol>
+          <li><a href="#selecteurs">Sélecteurs</a></li>
+          <li><a href="#couleurs">Couleurs et polices</a></li>
+          <li><a href="#boite">Le modèle de boîte</a></li>
+          <li><a href="#flexbox">Flexbox</a></li>
+          <li><a href="#responsive">Responsive design</a></li>
+          <li><a href="#animations">Transitions et animations</a></li>
+        </ol>
+      </aside>
+
+      <div>
+        <section class="lesson card reveal" id="selecteurs">
+          <h2>1. Sélecteurs</h2>
+          <p>Une règle CSS = un <strong>sélecteur</strong> (qui ?) + des <strong>déclarations</strong> (quoi ?). On relie le fichier CSS dans le <code>&lt;head&gt;</code> avec <code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code>.</p>
+          <div class="code-block">
+            <pre><code>p { color: #333; }              /* toutes les balises &lt;p&gt; */
+.carte { padding: 20px; }       /* les éléments class="carte" */
+#menu { background: black; }    /* l'élément id="menu" (unique) */
+nav a { text-decoration: none; }/* les &lt;a&gt; à l'intérieur de &lt;nav&gt; */
+a:hover { color: purple; }      /* pseudo-classe : au survol */</code></pre>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <caption>Priorité des sélecteurs (spécificité)</caption>
+              <thead>
+                <tr><th scope="col">Sélecteur</th><th scope="col">Exemple</th><th scope="col">Poids</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Style en ligne</td><td><code>style="..."</code></td><td>1-0-0-0</td></tr>
+                <tr><td>Identifiant</td><td><code>#menu</code></td><td>0-1-0-0</td></tr>
+                <tr><td>Classe, pseudo-classe</td><td><code>.carte</code>, <code>:hover</code></td><td>0-0-1-0</td></tr>
+                <tr><td>Balise</td><td><code>p</code></td><td>0-0-0-1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="couleurs">
+          <h2>2. Couleurs et polices</h2>
+          <p>Une couleur peut s'écrire avec un nom (<code>red</code>), en hexadécimal (<code>#e34c26</code>), en <code>rgb()</code> ou en <code>hsl()</code>. Les variables CSS évitent de répéter les mêmes valeurs.</p>
+          <div class="code-block">
+            <pre><code>:root {
+  --principale: #7c3aed;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1d1d2b;
+}
+h1 { color: var(--principale); }</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="boite">
+          <h2>3. Le modèle de boîte</h2>
+          <p>Chaque élément est une boîte composée de : <strong>contenu</strong> → <strong>padding</strong> (marge intérieure) → <strong>border</strong> (bordure) → <strong>margin</strong> (marge extérieure). Bouge les curseurs pour voir l'effet :</p>
+          <div class="playground">
+            <div class="controls">
+              <label for="r-width">Largeur : <span id="val-width">160px</span></label>
+              <input type="range" id="r-width" data-box="width" min="60" max="240" value="160">
+              <label for="r-padding">Padding : <span id="val-padding">20px</span></label>
+              <input type="range" id="r-padding" data-box="padding" min="0" max="50" value="20">
+              <label for="r-border">Bordure : <span id="val-border">6px</span></label>
+              <input type="range" id="r-border" data-box="border" min="0" max="20" value="6">
+              <label for="r-margin">Margin : <span id="val-margin">10px</span></label>
+              <input type="range" id="r-margin" data-box="margin" min="0" max="40" value="10">
+              <label for="r-radius">Arrondi : <span id="val-radius">12px</span></label>
+              <input type="range" id="r-radius" data-box="radius" min="0" max="60" value="12">
+            </div>
+            <div>
+              <div class="demo-stage"><div class="demo-box">Contenu</div></div>
+              <pre><code id="box-css"></code></pre>
+            </div>
+          </div>
+          <p class="tip">💡 Avec <code>box-sizing: border-box;</code>, la largeur inclut le padding et la bordure : beaucoup plus simple à calculer !</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="flexbox">
+          <h2>4. Flexbox</h2>
+          <p>Flexbox aligne facilement des éléments sur une ligne ou une colonne. On l'active sur le <strong>parent</strong> avec <code>display: flex</code>. Essaie les réglages :</p>
+          <div class="playground">
+            <div class="controls">
+              <label for="f-direction">flex-direction</label>
+              <select id="f-direction" data-flex="flexDirection">
+                <option>row</option><option>column</option><option>row-reverse</option>
+              </select>
+              <label for="f-justify">justify-content</label>
+              <select id="f-justify" data-flex="justifyContent">
+                <option>flex-start</option><option>center</option><option>flex-end</option><option>space-between</option><option>space-around</option>
+              </select>
+              <label for="f-align">align-items</label>
+              <select id="f-align" data-flex="alignItems">
+                <option>stretch</option><option>flex-start</option><option>center</option><option>flex-end</option>
+              </select>
+              <label for="f-wrap">flex-wrap</label>
+              <select id="f-wrap" data-flex="flexWrap">
+                <option>nowrap</option><option>wrap</option>
+              </select>
+            </div>
+            <div>
+              <div class="flex-demo"><div>1</div><div>2</div><div>3</div></div>
+              <pre><code id="flex-css"></code></pre>
+            </div>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="responsive">
+          <h2>5. Responsive design</h2>
+          <p>Un site responsive s'adapte à toutes les tailles d'écran. Deux ingrédients : la balise <code>meta viewport</code> dans le HTML et les <strong>media queries</strong> dans le CSS.</p>
+          <div class="code-block">
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+/* Ordinateur : 3 colonnes */
+.grille { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+/* Écran de moins de 640px : 1 seule colonne */
+@media (max-width: 640px) {
+  .grille { grid-template-columns: 1fr; }
+}</code></pre>
+          </div>
+          <p class="tip">💡 Teste-le ici même : réduis la largeur de ta fenêtre, le menu se transforme en bouton ☰ et les colonnes passent les unes sous les autres.</p>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+
+        <section class="lesson card reveal" id="animations">
+          <h2>6. Transitions et animations</h2>
+          <p><code>transition</code> anime le passage d'un état à un autre (au survol par exemple). <code>@keyframes</code> crée une animation en plusieurs étapes. Survole le bouton ci-dessous :</p>
+          <p><a class="btn" href="#animations">Survole-moi</a></p>
+          <div class="code-block">
+            <pre><code>.btn { transition: transform 0.2s; }
+.btn:hover { transform: translateY(-2px); }
+
+@keyframes flotter {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.image { animation: flotter 4s ease-in-out infinite; }</code></pre>
+          </div>
+          <button class="btn lesson-done" type="button">Marquer comme terminée</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <h2>CodeLab</h2>
+        <p>Le site pour apprendre les bases du Web, pas à pas : HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité.</p>
+      </div>
+      <nav aria-label="Navigation du pied de page">
+        <h2>Les cours</h2>
+        <ul>
+          <li><a href="html.html">Cours HTML</a></li>
+          <li><a href="css.html">Cours CSS</a></li>
+          <li><a href="javascript.html">Cours JavaScript</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Informations">
+        <h2>Infos</h2>
+        <ul>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="apropos.html#contact">Contact</a></li>
+          <li><a href="https://developer.mozilla.org/fr/">Documentation MDN</a></li>
+          <li><a href="https://validator.w3.org/">Validateur W3C</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">© <span class="year">2026</span> CodeLab — Projet Programmation Web 1 (TI504N), EFREI Paris.</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Revenir en haut de la page">↑</button>
+</body>
+</html>
